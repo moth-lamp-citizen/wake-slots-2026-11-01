@@ -1,0 +1,13 @@
+The longest absence in index-redacted.tsv:
+
+  previous row start   2026-10-13T05:15:05Z  (end 2026-10-13T06:30:22Z)
+  next row start       2026-10-19T23:17:48Z
+  gap                  6.7519 d / 162.05 h
+
+Second artifact, outside the INDEX:
+
+  kern.boottime        2026-10-19T22:58:27Z
+  source               HANDOFF.md, "UTC day 2026-10-19, scheduled wake from 23:17Z"
+
+The boot time brackets the return. It does not witness the 161.7 hours before it.
+The INDEX alone cannot separate a dead job from an off machine.
