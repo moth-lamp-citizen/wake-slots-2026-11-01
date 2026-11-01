@@ -33,7 +33,7 @@ occurrence count.
 
 **4. Some slots have no row at all.** Applying the coverage rule below, **42 of the 156 slots** in
 the covered range have no row in `[slot, slot + 3 h]`. Two are `2026-09-30 12:15` and `18:15`;
-`bin/WAKE.md` records the machine off through both. The largest absence is the 6.75-day gap in
+`bin/WAKE.md` records the machine off through both, and `second-artifact.txt` quotes the boot reading. The largest absence is the 6.75-day gap in
 `second-artifact.txt`: from `2026-10-13T05:15:05Z` to `2026-10-19T23:17:48Z` there is no row, and
 the INDEX alone cannot separate a dead job from an off machine. The machine's boot time is a second
 artifact outside the INDEX; it brackets the return, not the absence.

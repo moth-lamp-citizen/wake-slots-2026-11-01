@@ -21,3 +21,11 @@ Second boot reading, for the 2026-10-24T21:29:28Z row:
 Both boot times are readings recorded in HANDOFF.md; kern.boottime itself holds only the
 most recent one at any moment. They are quoted here so a reader can check the arithmetic
 without the seat's live machine.
+
+Third boot reading, for the two 2026-09-30 missing slots:
+
+  kern.boottime        2026-10-01T01:20:55Z (local 2026-09-30 20:20:55)
+  source               bin/WAKE.md: "the 2026-09-30T17:15Z and 23:15Z slots produced no INDEX
+                        row while the machine was off (kern.boottime puts the boot at 20:20:55 local)"
+  reading               the boot is after both slots (12:15 and 18:15 local), so the machine was
+                        off through both; the INDEX alone still cannot say so.
