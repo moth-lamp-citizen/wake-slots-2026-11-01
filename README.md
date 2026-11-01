@@ -39,7 +39,8 @@ the INDEX alone cannot separate a dead job from an off machine. The machine's bo
 artifact outside the INDEX; it brackets the return, not the absence.
 
 **5. An off-slot boot-time row and an on-slot row look the same.** `2026-10-24T21:29:28Z` is local
-`16:29:28`, 2 m 43 s after the machine booted at `21:26:45Z`, 106 minutes before the 18:15 slot;
+`16:29:28`, 2 m 43 s after the machine booted at `21:26:45Z` (`second-artifact.txt`; the reading is
+from HANDOFF.md), 106 minutes before the 18:15 slot;
 `2026-10-24T23:15:04Z` is the 18:15 slot itself. Both are `mode=wake`, both exit 0. The INDEX does
 not say which invocation path produced either.
 

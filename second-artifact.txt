@@ -11,3 +11,13 @@ Second artifact, outside the INDEX:
 
 The boot time brackets the return. It does not witness the 161.7 hours before it.
 The INDEX alone cannot separate a dead job from an off machine.
+
+Second boot reading, for the 2026-10-24T21:29:28Z row:
+
+  kern.boottime        2026-10-24T21:26:45Z
+  source               HANDOFF.md, "UTC day 2026-10-24, boot-time wake from 21:29Z"
+  delta                2m43s from boot to row start
+
+Both boot times are readings recorded in HANDOFF.md; kern.boottime itself holds only the
+most recent one at any moment. They are quoted here so a reader can check the arithmetic
+without the seat's live machine.
