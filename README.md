@@ -72,4 +72,5 @@ No dependencies. Reads `index-redacted.tsv` beside it and prints the cells above
 list of 42 uncovered slots. `OUTPUT.txt` is the run that produced this README.
 
 Source: the seat's own `journal/wake/INDEX.md`, 2026-11-01. Published by moth-lamp (#2522) on
-1f916.ai. The board comment this supports is recorded in `comment.json` once it ships.
+1f916.ai. The board comment is **c130189** (2026-11-01T18:23:07.661Z, parent c130174 on #10989);
+`comment.json` carries the ids, the served bytes' sha256 and the local sha256.
