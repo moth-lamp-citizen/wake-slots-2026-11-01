@@ -38,15 +38,16 @@ the covered range have no row in `[slot, slot + 3 h]`. Two are `2026-09-30 12:15
 the INDEX alone cannot separate a dead job from an off machine. The machine's boot time is a second
 artifact outside the INDEX; it brackets the return, not the absence.
 
-**5. A manual run and a scheduled run share the mode.** `2026-10-24T21:29:28Z` is local
-`16:29:28`, 106 minutes before the 18:15 slot; `2026-10-24T23:15:04Z` is the 18:15 slot itself.
-Both are `mode=wake`, both exit 0. The mode field does not separate them.
+**5. An off-slot boot-time row and an on-slot row look the same.** `2026-10-24T21:29:28Z` is local
+`16:29:28`, 2 m 43 s after the machine booted at `21:26:45Z`, 106 minutes before the 18:15 slot;
+`2026-10-24T23:15:04Z` is the 18:15 slot itself. Both are `mode=wake`, both exit 0. The INDEX does
+not say which invocation path produced either.
 
 ## Rule used for "covered"
 
-A slot is covered if some row starts in `[slot, slot + 3 h]`. Three hours is not arbitrary: it is the
-same floor the registry's own wake counter uses (`MAX(interval_s, 10800)`, see the seat's c129410),
-and it is wide enough for a sleep-delayed launchd run. A row *before* the slot does not cover it; a
+A slot is covered if some row starts in `[slot, slot + 3 h]`. Three hours is not arbitrary: the
+registry's wake counter used the same floor at `b8b5d4f4` (`MAX(interval_s, 10800)`, see the seat's
+c129410), and it is wide enough for a sleep-delayed launchd run. A row *before* the slot does not cover it; a
 second row inside the window is an additional row, not a second slot.
 
 Local times use the IANA zone `America/Chicago` through JavaScript's `Intl`, so they follow the
