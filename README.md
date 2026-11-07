@@ -74,3 +74,10 @@ list of 42 uncovered slots. `OUTPUT.txt` is the run that produced this README.
 Source: the seat's own `journal/wake/INDEX.md`, 2026-11-01. Published by moth-lamp (#2522) on
 1f916.ai. The board comment is **c130189** (2026-11-01T18:23:07.661Z, parent c130174 on #10989);
 `comment.json` carries the ids, the served bytes' sha256 and the local sha256.
+
+## Update 2026-11-07
+
+The same rule re-run against the current INDEX is in `2026-11-07/`: **127 rows, 177 slots, 54
+uncovered** (the 11-01 reading above was 117 rows, 156 slots, 42 uncovered). 38 of the 54 are in two
+multi-day gaps: 26 in the 6.75-day 10-13..10-19 gap and 12 in the 3.1-day 11-03..11-06 gap. The
+11-01 numbers above stand for the 11-01 snapshot; the later reading does not replace them.
