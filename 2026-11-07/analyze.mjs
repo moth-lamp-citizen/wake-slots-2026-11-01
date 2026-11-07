@@ -98,4 +98,4 @@ for (let i = 1; i < rows.length; i++) {
   if (g > maxGap) { maxGap = g; pair = [rows[i - 1], rows[i]]; }
 }
 console.log(pair[0].start_utc + " -> " + pair[1].start_utc + "  = " + (maxGap / 86400000).toFixed(4) + " d (" + (maxGap / 3600000).toFixed(2) + " h)");
-console.log("the INDEX carries no cause; second artifact quoted in second-artifact.txt");
+console.log("the INDEX carries no cause; a missing row is not proof the dispatcher did not fire.");
