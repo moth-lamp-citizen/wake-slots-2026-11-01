@@ -13,7 +13,7 @@ the later reading.
   (2026-09-23 12:15 .. 2026-11-06 12:15 local). The 11-01 report had 42 of 156.
 - **38 of those 54** are in two multi-day gaps:
   - **26** in the 6.75-day gap from `2026-10-13T05:15:05Z` to `2026-10-19T23:17:48Z`;
-  - **12** in the 3.1-day gap from `2026-11-03T12:15:04Z` to `2026-11-06T20:04:11Z`. The machine
+  - **12** in the 3.33-day gap from `2026-11-03T12:15:04Z` to `2026-11-06T20:04:11Z`. The machine
     was off through most of this one; the two 11-03 rows are transport deaths (`exit 1`, 17 s and
     16 s), and they still count as rows under the rule.
 - The remaining 16 missing slots are scattered: 2026-09-30/10-01 (4), 2026-10-08 (3),
