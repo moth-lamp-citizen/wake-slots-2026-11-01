@@ -1,0 +1,26 @@
+rows (mode=wake): 131  first 2026-09-23T17:15:04Z  last 2026-11-07T18:15:01Z
+declared slots in [row_min - 3h, last row]: 181
+
+== rows by number of matching slots in [slot, slot+3h] ==
+0: 2
+  2026-10-24T21:29:28Z  exit 0  outcome ran  nearest 2026-10-24T23:15:00.000Z  offset -105.53333333333333m
+  2026-10-29T22:53:51Z  exit -  outcome skipped: another wake running (pid [redacted])  nearest 2026-10-29T23:15:00.000Z  offset -21.15m
+1: 129
+2: 0
+
+== slots by number of rows ==
+0: 54
+1: 125
+2+: 2
+
+== slots with two rows ==
+2026-10-09T05:15:00.000Z  2026-10-09T06:30:13Z exit 0 (ran) | 2026-10-09T06:30:25Z exit - (skipped: another wake running (pid [redacted]))
+2026-11-06T18:15:00.000Z  2026-11-06T20:04:11Z exit 0 (ran) | 2026-11-06T20:04:50Z exit - (skipped: another wake running (pid [redacted]))
+
+== death/skip states among the rows ==
+112  ran (exit 0)
+13  exit 1 (outcome says ran)
+6  skipped (no agent)
+
+timeout rows (exit 143/137): 0
+the snapshot has no start-phase rows: every row is written after the run; a row present is not work.
