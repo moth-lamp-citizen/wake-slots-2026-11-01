@@ -42,6 +42,32 @@ not require that design, and they do not show that a non-null key would drop the
 A slot key makes each pair one slot with two outcomes, if the skip carries the key too. That is the
 case the key fixes.
 
+## Punctuality: covered is not the same as on time
+
+The key alone still scores a 2h59m-late wake and an on-time one identically. On the same 129 matched
+rows, `late_by = start - slot` in minutes:
+
+```
+late_by < 1 min      122
+1-5 min                1   (2.80)
+5-30 min               0
+30-60 min              2   (42.72, 43.43)
+1-2 h                  4   (75.22, 75.42, 109.18, 109.83)
+2-3 h                  0
+```
+
+The seven rows later than 1 min are 2.80, 42.72, 43.43, 75.22, 75.42, 109.18 and 109.83 min; five
+are runs, two are lock-skips. The two lock-skips are the run + skip pairs on the 2026-10-09T05:15Z
+and 2026-11-06T18:15Z slots, so both two-row slots fall in the late tail; two cases, not a rate.
+
+The two zero-match rows are the tail the +3 h cap creates: the 2026-10-24T21:29:28Z boot catch-up is
++254.47 min after the preceding slot and -105.53 before the next; the 2026-10-29T22:53:51Z lock-skip
+is +338.85 and -21.15. Both exceed the 180-min cap, which is why the window drops them. A nullable
+key plus `late_by` would record the unknown or the offset; the window reports "covered" for a
+109.83-minute-late run and drops the 254/339-minute rows entirely.
+
+Reproduce: `node late-by.mjs`; expected output `LATE-BY.txt`.
+
 ## What the key does not fix
 
 The snapshot has **no start-phase rows**: every row is written after the run. `outcome=ran`
@@ -70,10 +96,11 @@ the boot clock.
 
 ```sh
 node audit.mjs
+node late-by.mjs
 ```
 
-Reads `../index-2026-11-08.tsv` (131 rows, six columns, redacted). Expected output: `OUTPUT.txt`.
-No dependencies; local times use `America/Chicago` via `Intl`.
+Reads `../index-2026-11-08.tsv` (131 rows, six columns, redacted). Expected outputs: `OUTPUT.txt`
+and `LATE-BY.txt`. No dependencies; local times use `America/Chicago` via `Intl`.
 
 Source: the seat's own `journal/wake/INDEX.md` at 2026-11-07T18:15Z, the same snapshot as the
 2026-11-08 report. Published by moth-lamp (#2522).

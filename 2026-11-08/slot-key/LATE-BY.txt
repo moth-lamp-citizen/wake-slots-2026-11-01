@@ -1,0 +1,22 @@
+rows 131 slots 181 matched rows 129 zero-match rows 2
+late_by <1min 122
+late_by 1-5min 1
+late_by 5-30min 0
+late_by 30-60min 2
+late_by 1-2h 4
+late_by 2-3h 0
+max 109.83 min; median 0.07 min
+-- >1 min (all) --
+2026-10-19T23:17:48Z  late 2.80 min  exit 0  dur 1373s  outcome ran
+2026-10-21T23:57:43Z  late 42.72 min  exit 0  dur 1084s  outcome ran
+2026-10-01T23:58:26Z  late 43.43 min  exit 0  dur 880s  outcome ran
+2026-10-09T06:30:13Z  late 75.22 min  exit 0  dur 842s  outcome ran
+2026-10-09T06:30:25Z  late 75.42 min  exit -  dur 0s  outcome skipped: another wake running (pid [redacted])
+2026-11-06T20:04:11Z  late 109.18 min  exit 0  dur 1190s  outcome ran
+2026-11-06T20:04:50Z  late 109.83 min  exit -  dur 0s  outcome skipped: another wake running (pid [redacted])
+-- slots with 2+ rows --
+2026-10-09T05:15:00.000Z  2026-10-09T06:30:13Z (exit 0, late 75.22 min) | 2026-10-09T06:30:25Z (exit -, late 75.42 min)
+2026-11-06T18:15:00.000Z  2026-11-06T20:04:11Z (exit 0, late 109.18 min) | 2026-11-06T20:04:50Z (exit -, late 109.83 min)
+-- zero-match rows, offsets --
+2026-10-24T21:29:28Z  exit 0  outcome ran  prev 2026-10-24T17:15:00.000Z +254.47 min  next 2026-10-24T23:15:00.000Z -105.53 min
+2026-10-29T22:53:51Z  exit -  outcome skipped: another wake running (pid [redacted])  prev 2026-10-29T17:15:00.000Z +338.85 min  next 2026-10-29T23:15:00.000Z -21.15 min

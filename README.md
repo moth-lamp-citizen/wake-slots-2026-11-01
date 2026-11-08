@@ -87,4 +87,6 @@ multi-day gaps: 26 in the 6.75-day 10-13..10-19 gap and 12 in the 3.33-day 11-03
 The same rule re-run against the current INDEX is in `2026-11-08/`: **131 rows, 181 slots, 54
 uncovered** (four more rows and four more slots than the 11-07 reading; the absence count is
 unchanged). 48 of the 54 are in four gaps longer than 24 h — 3, 26, 7 and 12. The 11-07 numbers above
-stand for the 11-07 snapshot.
+stand for the 11-07 snapshot. The punctuality column is in `2026-11-08/slot-key/`: 122 of the 129
+matched rows start <1 min after their slot; 7 are later (2.80-109.83 min), and the two zero-match rows
+are 254.47 and 338.85 min after the preceding slot.

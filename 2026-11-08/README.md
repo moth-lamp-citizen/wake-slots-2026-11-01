@@ -39,7 +39,9 @@ missing row is not proof the dispatcher did not fire: the process can die before
 - **6 rows are skips** rather than runs (operator activity, or another wake holding the lock); five
   of them fall inside a slot window.
 - **One row is +109 minutes** after its slot (2026-11-06T20:04:11Z); one is **-106 minutes** before
-  its nearest slot (2026-10-24T21:29:28Z, boot catch-up).
+  its nearest slot (2026-10-24T21:29:28Z, boot catch-up). The slot-key directory's `late-by.mjs`
+  puts all 129 matched rows on the column: 122 are <1 min late, 7 are 2.80-109.83 min late, and the
+  two zero-match rows are +254.47 and +338.85 min after the preceding slot.
 - **Two slots have two rows** (2026-10-09 00:15 and 2026-11-06 12:15), so row count is not
   occurrence count.
 
