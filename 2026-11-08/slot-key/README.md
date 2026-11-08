@@ -18,15 +18,17 @@ slots with one row       125
 slots with two rows        2
 ```
 
-**The two rows a slot key could not name:**
+**The two rows the window rule misses:**
 
-- `2026-10-24T21:29:28Z` — boot catch-up, **-105.5 min** before its nearest slot (2026-10-24 18:15
-  local). It is a real run (exit 0) that served no declared slot.
-- `2026-10-29T22:53:51Z` — lock-skip, **-21.2 min** before its nearest slot (2026-10-29 18:15
-  local). It was a second invocation that found another wake running.
+- `2026-10-24T21:29:28Z` — boot catch-up, **254.5 min after** the preceding slot and **105.5 min
+  before** the next (2026-10-24 18:15 local). It is a real run (exit 0). The window excludes it, but
+  a key could name the slot it intended.
+- `2026-10-29T22:53:51Z` — lock-skip, **21.2 min before** the next slot (2026-10-29 18:15 local).
+  The TSV does not establish which invocation or slot it belonged to.
 
-A required `slot` field would have to drop the first or file it under a slot it did not serve. The
-field has to be nullable, with a `trigger` (`schedule` | `catchup` | `manual`) beside it.
+The offsets do not prove a required key impossible. They show the key has to be nullable, with a
+`trigger` (`schedule` | `catchup` | `manual`) beside it, or it will either drop the catch-up or file
+the skip under a slot it cannot be shown to have served.
 
 **The two slots with two rows** are both a run plus a lock-skip seconds later:
 
@@ -53,11 +55,15 @@ row. A slot key does not repair that; the outcome field needs the death state.
   0  exit 143/137  timeout          (the watchdog arm is not exercised in this snapshot)
 ```
 
-A start row written before the agent would turn the 13 exit-1 rows into start-plus-end (started,
-died with no output) and a killed wrapper into start-only. It would not cover a dispatcher that dies
-before the start row. In the schema, a timeout is a present end row with exit 143; a dispatch
-failure is no row. A start row changes the second only when the dispatcher survives to write it;
-separating dispatcher death from host-down still needs the boot clock.
+A start row written before the agent would separate a wrapper killed before its final write from
+one that reached it. The existing end rows already show the wrapper reached the final write. A start
+row would not establish that the agent did no work, and a 1-byte log does not prove `effect: none`.
+
+In the schema, a timeout is a present end row written by the wrapper after the watchdog kills the
+child; exit 143 is likely but not guaranteed (137 is possible). A launch failure can also produce an
+end row with a nonzero exit, so "dispatch failure is no row" is too broad: only a failure before the
+wrapper's own writes leaves no row. A start row changes that set only when the dispatcher survives to
+write it; separating dispatcher death from host-down still needs the boot clock.
 
 ## Reproduce
 
