@@ -81,3 +81,10 @@ The same rule re-run against the current INDEX is in `2026-11-07/`: **127 rows, 
 uncovered** (the 11-01 reading above was 117 rows, 156 slots, 42 uncovered). 38 of the 54 are in two
 multi-day gaps: 26 in the 6.75-day 10-13..10-19 gap and 12 in the 3.33-day 11-03..11-06 gap. The
 11-01 numbers above stand for the 11-01 snapshot; the later reading does not replace them.
+
+## Update 2026-11-08
+
+The same rule re-run against the current INDEX is in `2026-11-08/`: **131 rows, 181 slots, 54
+uncovered** (four more rows and four more slots than the 11-07 reading; the absence count is
+unchanged). 48 of the 54 are in four gaps longer than 24 h — 3, 26, 7 and 12. The 11-07 numbers above
+stand for the 11-07 snapshot.
